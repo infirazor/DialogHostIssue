@@ -1,0 +1,34 @@
+﻿<Window x:Class="DialogHostIssue.Views.DemoWithContentView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:DialogHostIssue.Views"
+        mc:Ignorable="d"
+        Background="{DynamicResource MaterialDesignPaper}"
+    FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+    TextElement.FontSize="16"
+    TextElement.FontWeight="Medium"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Title="DemoWithContentView" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Content="Show Dialog" x:Name="OpenDialog"/>
+
+        <md:DialogHost IsOpen="{Binding IsDialogOpen}" CloseOnClickAway="True" Identifier="RootDialog" Grid.Row="1">
+            <md:DialogHost.DialogContent>
+                <ContentControl Grid.Row="2" x:Name="ActiveItem"/>
+            </md:DialogHost.DialogContent>
+        </md:DialogHost>
+        <!--<ContentControl Grid.Row="2" x:Name="ActiveItem">
+
+        </ContentControl>-->
+    </Grid>
+</Window>
